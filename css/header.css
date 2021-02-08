@@ -1,0 +1,12 @@
+body {
+  font-family: "Lato", sans-serif; }
+
+header {
+  font-family: "Abril Fatface", cursive; }
+
+.header__contenedor {
+  background-color: #3f4349; }
+  .header__contenedor a {
+    color: #ffcc00 !important; }
+    .header__contenedor a:hover {
+      color: #c07373 !important; }

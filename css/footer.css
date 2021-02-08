@@ -1,0 +1,21 @@
+.footer__ecommerce {
+  height: 65px;
+  width: 64px;
+  align-content: center; }
+
+.footer__sello_cace {
+  height: 40px;
+  width: 125px;
+  align-content: center; }
+
+.footer__data_fiscal {
+  height: 40px;
+  width: 30px; }
+
+@media (max-width: 767px) {
+  .footer__ocultar_txt {
+    display: none; } }
+
+@media (max-width: 991px) {
+  .footer__ocultar_img {
+    display: none; } }
