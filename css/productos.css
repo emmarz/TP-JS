@@ -100,13 +100,6 @@ main button:focus {
   height: 100%;
   background: rgba(0, 0, 0, 0.452); }
 
-.main-grid_productos > div {
-  max-width: 250px; }
-
-.main-grid_productos div div + div {
-  border: solid 1px #dcdbdb;
-  margin-bottom: 10px; }
-
 .main-max_width {
   max-width: 1050px; }
 
@@ -155,6 +148,42 @@ main button:focus {
   width: 250px;
   display: flex;
   justify-content: space-between; }
+
+  .button_agregarCarrito{
+    width: 100%;
+    padding: 5px 0px;
+    background-color: #3f4349;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+  }
+  .button_content {
+    flex: 1 1 auto;
+    text-align: left;
+    margin-left: 10px;
+    text-transform: uppercase; }
+  .button_icon {
+    flex: 2 1 auto;
+    text-align: right;
+    margin-right: 10px; }
+
+  .button_agregarCarrito:hover {
+    color: #ffcc00;
+    border: none; }
+
+  .producto {
+    max-width: 241px;
+    margin-bottom: 10px;
+    border: 3px solid white;
+    box-sizing: content-box; }
+
+  .producto img {
+    cursor: pointer; }
+
+  .producto:hover {
+    border: 3px solid #3f4349; }
+
 
 @media (min-width: 768px) {
   .main-view_mobile {
