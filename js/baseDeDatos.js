@@ -95,13 +95,12 @@ function cargaDatos() {
     let i;
     let tamanio = baseDeDatos.length;
     let contenidoAgregar;
-    for(i = 0; i < 1; i++){
+    for(i = 0; i < tamanio; i++){
         let ref_ubicacion = document.getElementById('main-productos');
-//primer bloque - imagen
         let productoDiv = document.createElement('div');
         productoDiv.setAttribute('id', baseDeDatos[i].id);
         productoDiv.setAttribute('class', 'col-12 col-sm-6 col-md-4 p-0 mx-2 producto');
-
+//primer bloque - imagen
         let imgDiv = document.createElement('div');
         imgDiv.setAttribute('class', 'text-center');
 
@@ -110,8 +109,6 @@ function cargaDatos() {
         img.setAttribute('alt', baseDeDatos[i].nombre);
         imgDiv.appendChild(img);
         productoDiv.appendChild(imgDiv);
-        ref_ubicacion.appendChild(productoDiv);
-
 //segundo bloque - texto
         let textoDiv = document.createElement('div');
         textoDiv.setAttribute('class', 'text-center producto_texto')
@@ -120,11 +117,11 @@ function cargaDatos() {
         contenidoAgregar = document.createTextNode(baseDeDatos[i].nombre);
         nombreSpan.appendChild(contenidoAgregar);
 
-        let tagBr = document.createElement('br');
-
         let precioSpan = document.createElement('span');
         contenidoAgregar = document.createTextNode('$' + Math.trunc(baseDeDatos[i].precio) + ',');
         precioSpan.appendChild(contenidoAgregar); //agrego al span la parte entera
+
+        let tagBr = document.createElement('br');
 
         let tagSup = document.createElement('sup');
         contenidoAgregar = document.createTextNode(parteDecimal(baseDeDatos[i].precio));
@@ -132,10 +129,9 @@ function cargaDatos() {
         precioSpan.appendChild(tagSup); //agrego al span la parte <sup>
 
         textoDiv.appendChild(nombreSpan);
+        textoDiv.appendChild(tagBr);
         textoDiv.appendChild(precioSpan);
-        ref_ubicacion.appendChild(textoDiv);
-        console.log(textoDiv);
-
+        productoDiv.appendChild(textoDiv);
 //tercer bloque - boton
         let button = document.createElement('button');
         button.setAttribute('class', 'button_agregarCarrito')
@@ -154,8 +150,9 @@ function cargaDatos() {
 
         button.appendChild(buttonTexto);
         button.appendChild(buttonIcon);
-        ref_ubicacion.appendChild(button);
-        console.log(button);
+        productoDiv.appendChild(button);
+
+        ref_ubicacion.appendChild(productoDiv);
     }
 }
 

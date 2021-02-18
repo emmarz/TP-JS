@@ -100,9 +100,6 @@ main button:focus {
   height: 100%;
   background: rgba(0, 0, 0, 0.452); }
 
-.main-max_width {
-  max-width: 1050px; }
-
 .main-pagination {
   display: flex;
   align-items: flex-end; }
