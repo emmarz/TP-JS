@@ -95,7 +95,7 @@ function cargaDatos() {
     let i;
     let tamanio = baseDeDatos.length;
     let contenidoAgregar;
-    for(i = 0; i < tamanio; i++){
+    for(i = 0; i < 1; i++){
         let ref_ubicacion = document.getElementById('main-productos');
         let productoDiv = document.createElement('div');
         productoDiv.setAttribute('id', baseDeDatos[i].id);
@@ -111,7 +111,7 @@ function cargaDatos() {
         productoDiv.appendChild(imgDiv);
 //segundo bloque - texto
         let textoDiv = document.createElement('div');
-        textoDiv.setAttribute('class', 'text-center producto_texto')
+        textoDiv.setAttribute('class', 'text-center producto_texto');
 
         let nombreSpan = document.createElement('span');
         contenidoAgregar = document.createTextNode(baseDeDatos[i].nombre);
@@ -134,15 +134,17 @@ function cargaDatos() {
         productoDiv.appendChild(textoDiv);
 //tercer bloque - boton
         let button = document.createElement('button');
-        button.setAttribute('class', 'button_agregarCarrito')
+        button.setAttribute('id', crearIdButton(i));
+        button.setAttribute('class', 'btn_agregarCarrito');
+        button.setAttribute('onclick', 'agregarAlCarrito(); agregarAlJSON();');
 
         let buttonTexto = document.createElement('span');
-        buttonTexto.setAttribute('class', 'button_content');
+        buttonTexto.setAttribute('class', 'btn_content');
         contenidoAgregar = document.createTextNode('Añadir al carrito');
         buttonTexto.appendChild(contenidoAgregar);
 
         let buttonIcon = document.createElement('span');
-        buttonIcon.setAttribute('class', 'button_icon');
+        buttonIcon.setAttribute('class', 'btn_icon');
 
         let icon = document.createElement('i');
         icon.setAttribute('class', 'fas fa-long-arrow-alt-right');
@@ -160,6 +162,10 @@ function parteDecimal(numero){
     let numToString = numero.toString();
     let array = numToString.split('.');
     return array[1];
+}
+
+function crearIdButton(numero){
+    return 'producto-' + (numero + 1).toString(); 
 }
 
 
