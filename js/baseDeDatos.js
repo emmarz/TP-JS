@@ -134,9 +134,9 @@ function cargaDatos() {
         productoDiv.appendChild(textoDiv);
 //tercer bloque - boton
         let button = document.createElement('button');
-        button.setAttribute('id', crearIdButton(i));
+        //button.setAttribute('id', crearIdButton(i));
         button.setAttribute('class', 'btn_agregarCarrito');
-        button.setAttribute('onclick', 'agregarAlCarrito(); agregarAlJSON();');
+        button.setAttribute('onclick', 'agregarAlCarrito("'+baseDeDatos[i].id+'"); agregarAlJSON("'+baseDeDatos[i].id+'");');
 
         let buttonTexto = document.createElement('span');
         buttonTexto.setAttribute('class', 'btn_content');
