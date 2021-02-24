@@ -3,12 +3,16 @@ let total = 0;
 
 
 function agregarAlCarrito(id){
-    console.log('agregó al carrito');
-    
-    return ;
+    let pos = buscarId(id);
+    let producto = new producto(baseDeDatos[pos].id,
+                                baseDeDatos[pos].nombre,
+                                baseDeDatos[pos].precio,
+                                baseDeDatos[pos].url);
+    carrito.push(producto);
+    //falta codigo para el html
 }
 
-function agregarAlJSON(id){
-    console.log('agrego al json')
-    return ;
+function crearJson(array){
+    
+    
 }
