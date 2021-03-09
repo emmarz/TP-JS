@@ -215,6 +215,9 @@
 	<link rel="stylesheet" href="CSS/header.css">
 	<link rel="stylesheet" href="CSS/productos.css">
 	<link rel="stylesheet" href="CSS/footer.css">
+	<!--modal-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
 </head>
 <body>
 
@@ -249,7 +252,7 @@
 
 						<div> <!--cuenta-->
 							<a class="btn btn-lg p-0" href="#"><i class="fas fa-shopping-cart"></i></a><!--carrito-->
-							<a class="btn btn-lg" href="#"><i class="far fa-user-circle">Mi cuenta</i></a><!--iniciar sesion-->
+							<a class="btn btn-lg" href="#ex2" rel="modal:open"><i class="far fa-user-circle">Mi cuenta</i></a><!--iniciar sesion-->
 						</div>
 						</div>
 	
@@ -584,6 +587,24 @@
 				</div>
 			</div>
 
+			<form action="" class="login_form_modal" id="ex2">
+				<h1>Login Form</h1>
+				<div class="FormRow">
+					<label for="Username">Username:</label>
+					<input type="text" size="15" id="Username" name="Username">
+				</div>
+				<div class="FormRow">
+					<label for="Password">Password:</label>
+					<input type="password" size="15" id="Password" name="Password">
+				</div>
+				<div class="FormRow" id="LoginButtonDiv">
+					<input type="submit" value="Login">
+				</div>
+				<div id="BadLogin">
+					<p>The login information you entered does not match
+					an account in our records. Please try again.</p>
+				</div>
+			</form>
 
 		</div> <!--cierre container padre-->
 	</main>
@@ -614,6 +635,11 @@
         </div>
     </footer>
 
+	<!-- jQuery Modal -->
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
 
 	<!-- Option 2: Separate Popper and Bootstrap JS -->
 	<script src="js/popper.min.js"></script>
@@ -624,5 +650,6 @@
 	<script src="js/baseDeDatos.js"></script>
 	<script src="js/carritoDeCompras.js"></script>
 	<script src="js/html.js"></script>
+	<script src="js/form.js"></script>
 </body>
 </html>
