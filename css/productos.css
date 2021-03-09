@@ -91,7 +91,7 @@ main button:focus {
   .main-list_filter_md label ul {
     padding-left: 20px; }
 
-.modal {
+.modalGeneric {
   display: none;
   position: fixed;
   z-index: 1;
@@ -181,6 +181,39 @@ main button:focus {
   .producto:hover {
     border: 3px solid #3f4349; }
 
+    /*modal login*/
+.modal-header .close {
+  margin-top: -1.5rem;
+}
+
+.form-title {
+  margin: -2rem 0rem 2rem;
+}
+
+.btn-round {
+  border-radius: 3rem;
+}
+
+.delimiter {
+  padding: 1rem;
+}
+
+.social-buttons .btn {
+  margin: 0 0.5rem 1rem;
+}
+
+.signup-section {
+  padding: 0.3rem 0rem;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 400px;
+  }
+  .modal-dialog .modal-content {
+    padding: 1rem;
+  }
+}
 
 @media (min-width: 768px) {
   .main-view_mobile {
@@ -191,3 +224,5 @@ main button:focus {
 @media (max-width: 767px) {
   .main-view_desktop {
     display: none; } }
+
+

@@ -215,8 +215,6 @@
 	<link rel="stylesheet" href="CSS/header.css">
 	<link rel="stylesheet" href="CSS/productos.css">
 	<link rel="stylesheet" href="CSS/footer.css">
-	<!--modal-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
 </head>
 <body>
@@ -252,7 +250,8 @@
 
 						<div> <!--cuenta-->
 							<a class="btn btn-lg p-0" href="#"><i class="fas fa-shopping-cart"></i></a><!--carrito-->
-							<a class="btn btn-lg" href="#ex2" rel="modal:open"><i class="far fa-user-circle">Mi cuenta</i></a><!--iniciar sesion-->
+							<a href="#myModal" class="btn btn-lg trigger-btn" data-toggle="modal" data-target="#loginModal"><i class="far fa-user-circle">
+								Mi cuenta</i></a><!--iniciar sesion-->
 						</div>
 						</div>
 	
@@ -459,7 +458,7 @@
 
 
 			
-			<div id="miModal" class="modal"> <!--modal filtrar para MOBILE-->
+			<div id="miModal" class="modal modalGeneric"> <!--modal filtrar para MOBILE-->
 				<div class="main-modal__container"><!--crea contenedor para visualizar por encima del flujo normal de la página-->
 					
 					<div class="main-modal__header">
@@ -535,7 +534,7 @@
 				</div>
 			</div><!--cierre moda filtrar-->
 
-			<div id="miModal_ordenar" class="modal"> <!--modal ordenar para MOBILE-->
+			<div id="miModal_ordenar" class="modal modalGeneric"> <!--modal ordenar para MOBILE-->
 				<div class="main-modal__container">		<!--crea contenedor para visualizar por encima del flujo normal de la página-->
 					
 					<div class="main-modal__header">
@@ -581,30 +580,52 @@
 				</div>
 			</div> <!--cierre modal ordenar-->
 
-			<div id="miModal_carrito">
-				<div>
-					
-				</div>
-			</div>
+			<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><!--modal login-->
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header border-bottom-0">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
 
-			<form action="" class="login_form_modal" id="ex2">
-				<h1>Login Form</h1>
-				<div class="FormRow">
-					<label for="Username">Username:</label>
-					<input type="text" size="15" id="Username" name="Username">
+						<div class="modal-body">
+							<div class="form-title text-center">
+								<h4>Inicia sesión</h4>
+							</div>
+							<div class="d-flex flex-column text-center">
+								<form>
+									<div class="form-group">
+										<input type="email" class="form-control" id="email1"placeholder="Ingresa tu email">
+									</div>
+									<div class="form-group">
+										<input type="password" class="form-control" id="password1" placeholder="Ingresa tu contraseña">
+									</div>
+									<button type="button" class="btn btn-info btn-block btn-round">Inicia sesión</button>
+								</form>
+								
+								<div class="text-center text-muted delimiter">o ingresa por:</div>
+
+								<div class="d-flex justify-content-center social-buttons">
+									<button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Twitter">
+										<i class="fab fa-twitter"></i>
+									</button>
+									<button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Facebook">
+										<i class="fab fa-facebook"></i>
+									</button>
+									<button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Linkedin">
+										<i class="fab fa-linkedin"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer d-flex justify-content-center">
+							<div class="signup-section">No tienes cuenta?<a href="#a" class="text-info">Regístrate</a>.</div>
+						</div>
+					</div>
+
 				</div>
-				<div class="FormRow">
-					<label for="Password">Password:</label>
-					<input type="password" size="15" id="Password" name="Password">
-				</div>
-				<div class="FormRow" id="LoginButtonDiv">
-					<input type="submit" value="Login">
-				</div>
-				<div id="BadLogin">
-					<p>The login information you entered does not match
-					an account in our records. Please try again.</p>
-				</div>
-			</form>
+			</div><!--cierre modal login-->
 
 		</div> <!--cierre container padre-->
 	</main>
@@ -634,12 +655,6 @@
             </div>
         </div>
     </footer>
-
-	<!-- jQuery Modal -->
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-
 
 	<!-- Option 2: Separate Popper and Bootstrap JS -->
 	<script src="js/popper.min.js"></script>

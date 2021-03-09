@@ -1,4 +1,4 @@
-function login(form) {
+/*function login(form) {
     var un = form.Username.value;
     var pw = form.Password.value;
     var xmlhttp = new XMLHttpRequest();
@@ -33,4 +33,4 @@ window.addEventListener(window,"load", function() {
             badLogin.style.display = 'none';
         }, 3000);
     }
-}
+}*/

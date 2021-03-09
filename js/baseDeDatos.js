@@ -95,7 +95,7 @@ function cargaDatos() {
     let i;
     let tamanio = baseDeDatos.length;
     let contenidoAgregar;
-    for(i = 0; i < 1; i++){
+    for(i = 0; i < tamanio; i++){
         let ref_ubicacion = document.getElementById('main-productos');
         let productoDiv = document.createElement('div');
         productoDiv.setAttribute('id', baseDeDatos[i].id);
