@@ -14,7 +14,11 @@ let setCart = object =>{
 
 
 //carga los elementos guardados en baseDate al DOM
-document.addEventListener('DOMContentLoaded', e =>{ loadData()});
+//document.addEventListener('DOMContentLoaded', e =>{ loadData()});
+$(fn({
+    loadData();
+}))
+
 function loadData() {
     let i;
     let lengthDB = dataBase.length;
@@ -82,6 +86,10 @@ function loadData() {
     }
 }
 
+
+
+
+/*
 function decimal(numero){
     let numToString = numero.toString();
     let array = numToString.split('.');
@@ -98,4 +106,5 @@ function searchId(id){
         i += 1;
     }
     return i;
-}
+}*/
+
