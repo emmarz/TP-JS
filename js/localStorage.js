@@ -1,16 +1,16 @@
 class Persona {
-    constructor(nombre, apellido, edad){
-    this.nombre = nombre;
+    constructor(name, apellido, edad){
+    this.name = name;
     this.apellido = apellido;
     this.edad = edad;
     }
     saludar(Persona){
-        alert('Bienvenido!!!' + Persona.nombre)
+        alert('Bienvenido!!!' + Persona.name)
     }
 }
 
 let unaPersona = new Persona(
-    prompt('Nombre'),
+    prompt('name'),
     prompt('apellido'),
     parseInt(prompt('edad'))
 );
@@ -21,8 +21,8 @@ saludar(unaPersona);
 localStorage.setItem('otraPersona', JSON.stringify(unaPersona));
 console.log('Mi persona obtenida: ', JSON.parse(localStorage.otraPersona));
 
-localStorage.setItem('nombrePersona', unaPersona.nombre);
-console.log(localStorage.getItem('nombrePersona'));
+localStorage.setItem('namePersona', unaPersona.name);
+console.log(localStorage.getItem('namePersona'));
 
 
 

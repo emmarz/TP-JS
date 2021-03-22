@@ -146,7 +146,7 @@ main button:focus {
   display: flex;
   justify-content: space-between; }
 
-  .btn_agregarCarrito{
+  .btn_addToCart{
     width: 100%;
     padding: 5px 0px;
     background-color: #3f4349;
@@ -165,7 +165,7 @@ main button:focus {
     text-align: right;
     margin-right: 10px; }
 
-  .btn_agregarCarrito:hover {
+  .btn_addToCart:hover {
     color: #ffcc00;
     border: none; }
 
