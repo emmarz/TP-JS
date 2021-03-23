@@ -13,11 +13,12 @@ let setCart = object =>{
 }
 
 
-//carga los elementos guardados en baseDate al DOM
+
+//carga los elementos guardados en baseDate en el DOM, solo cuando se hayan cargado completamente el DOM.
 //document.addEventListener('DOMContentLoaded', e =>{ loadData()});
-$(fn({
+$(function() {
     loadData();
-}))
+});
 
 function loadData() {
     let i;
@@ -88,14 +89,12 @@ function loadData() {
 
 
 
-
-/*
 function decimal(numero){
     let numToString = numero.toString();
     let array = numToString.split('.');
     return array[1];
 }
-
+/*
 function createIdButton(numero){
     return 'producto-' + (numero + 1).toString(); 
 }
