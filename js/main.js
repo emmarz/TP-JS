@@ -28,8 +28,12 @@ function addToCart(e) {
 let setCart = anObject =>{
     console.log(anObject);
     let product = {
-        id: anObject.
+        id: anObject.querySelector('button').getAttribute('id'),
+        name: anObject.querySelector('.btn_content').innerHTML,
+        //price: '2',
+        //url: '3',
     }
+    console.log(product);
 }
 
 
