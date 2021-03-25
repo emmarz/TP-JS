@@ -1,15 +1,35 @@
 let cart = {};
 
 //agregar item al carrito
-let addToCart = e => {
-    if(e.target.classList.contains('bbtn_addToCart')){
-        setCart(e.target.parentElement);
-    }
+$('#main-productos').click( e => {
+    addToCart(e);
+});
+
+function addToCart(e) {
+    let nodeTagButton;
+    if (e.target.classList.contains('btn_addToCart')){
+        nodeTagButton = e.target.parentElement;
+        setCart(nodeTagButton);
+    }else{
+            if(e.target.classList.contains('btn_content') || e.target.classList.contains('btn_icon')){
+                nodeTagButton = (e.target.parentElement).parentElement;
+                setCart(nodeTagButton);
+            }
+            else{
+                if(e.target.classList.contains('fas')){
+                    nodeTagButton = ((e.target.parentElement).parentElement).parentElement;
+                    setCart(nodeTagButton);
+                }
+            }
+        }
     e.stopPropagation();
 }
 
-let setCart = object =>{
-    console(object);
+let setCart = anObject =>{
+    console.log(anObject);
+    let product = {
+        id: anObject.
+    }
 }
 
 
@@ -65,7 +85,7 @@ function loadData() {
         let button = document.createElement('button');
         button.setAttribute('id', dataBase[i].id);
         button.setAttribute('class', 'btn_addToCart');
-        button.setAttribute('onclick', 'agregarAlCarrito("'+dataBase[i].id+'"); crearJson("'+dataBase[i].id+'");');
+        //button.setAttribute('onclick', 'agregarAlCarrito("'+dataBase[i].id+'"); crearJson("'+dataBase[i].id+'");');
 
         let buttonTexto = document.createElement('span');
         buttonTexto.setAttribute('class', 'btn_content');
