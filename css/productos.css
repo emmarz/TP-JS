@@ -37,7 +37,7 @@ main button:focus {
   .main-modal__header .tittle {
     flex: 3 1 auto;
     text-align: center; }
-  .main-modal__header .close i {
+  .main-modal__header .btn-close i {
     color: white;
     font-size: 30px;
     margin: 0px 10px;

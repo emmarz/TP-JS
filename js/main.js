@@ -1,6 +1,10 @@
 let cart = {};
+let templateItem = document.querySelector('#template-item');
+let listItems = document.querySelector('#list-items');
+let fragment = document.createDocumentFragment();
+let cartModalFooter = document.querySelector('#cartModal-footer');
 
-//agregar item al carrito
+//Otenemos el div padre de cada producto en el DOM
 $('#main-productos').click( e => {
     addToCart(e);
 });
@@ -24,17 +28,58 @@ function addToCart(e) {
         }
     e.stopPropagation();
 }
-
+//Creamos objeto producto y lo agregamos al carrito
 let setCart = anObject =>{
-    console.log(anObject);
     let product = {
         id: anObject.querySelector('button').getAttribute('id'),
-        name: anObject.querySelector('.btn_content').innerHTML,
-        //price: '2',
-        //url: '3',
+        name: anObject.querySelector('.product_name').textContent,
+        price: anObject.querySelector('.product_price').textContent,
+        url: anObject.querySelector('img').getAttribute('src'),
+        count: 1,
     }
-    console.log(product);
+    if(cart.hasOwnProperty(product.id)){
+        product.count = cart[product.id].count + 1;
+    }
+    cart[product.id] = {...product};
+    displayCart();
 }
+
+let displayCart = () => {
+    listItems.innerHTML = '';
+    Object.values(cart).forEach( product => {
+        templateItem.querySelector('img').setAttribute('src', product.url);
+        templateItem.querySelector('img').setAttribute('alt', product.name);
+        templateItem.querySelector('#item-name').textContent = product.name;
+        templateItem.querySelector('.item-substract').dataset.id = product.id;
+        templateItem.querySelector('.item-count').textContent = product.count;
+        templateItem.querySelector('.item-add').dataset.id = product.id;
+        templateItem.querySelector('#item-price').textContent = product.price * product.count;
+
+        let clone = templateItem.cloneNode(true);
+        fragment.appendChild(clone);
+        });
+    listItems.appendChild(fragment);
+    displayFooter();
+}
+
+let displayFooter = () => {
+    cartModalFooter.innerHTML = '';
+    if(Object.keys(cart).length === 0){
+        cartModalFooter.innerHTML = <p id="emptyCart">Carrito vacío</p>;
+    }else{
+        cartModalFooter.innerHTML =
+        `<span id="count-total">total productos: </span>
+        <span id="price-total">Precio total: </span>
+        <button type="button" class="btn btn-secondary">Vaciar carrito</button>`;
+    }
+    let nCount = Object.values(cart).reduce((acc, {count}) => acc + count, 0);
+    let nPrice = Object.values(cart).reduce((acc, {count, price}) => acc + cantidad * price, 0);
+    cartModalFooter.querySelectorAll('span')[0].textContent += nCount;
+    cartModalFooter.querySelectorAll('span')[1].textContent += nPrice;
+
+}
+
+
 
 
 
@@ -67,10 +112,12 @@ function loadData() {
         textDiv.setAttribute('class', 'text-center producto_texto');
 
         let nameSpan = document.createElement('span');
+        nameSpan.setAttribute('class', 'product_name');
         contentToAdd = document.createTextNode(dataBase[i].name);
         nameSpan.appendChild(contentToAdd);
 
         let priceSpan = document.createElement('span');
+        priceSpan.setAttribute('class', 'product_price');
         contentToAdd = document.createTextNode('$' + Math.trunc(dataBase[i].price) + ',');
         priceSpan.appendChild(contentToAdd); //agrego al span la parte entera
 
@@ -113,21 +160,14 @@ function loadData() {
 
 
 
+
+
+
+
+
 function decimal(numero){
     let numToString = numero.toString();
     let array = numToString.split('.');
     return array[1];
 }
-/*
-function createIdButton(numero){
-    return 'producto-' + (numero + 1).toString(); 
-}
-
-function searchId(id){
-    let i = 0;
-    while (id =! dataBase[i].id){
-        i += 1;
-    }
-    return i;
-}*/
 
